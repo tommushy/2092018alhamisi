@@ -1,1 +1,1 @@
-include ':app', ':uixml', ':uixml', ':uixml'
+include ':app', ':uixml', ':uixml', ':uixml', ':relativelayout'
