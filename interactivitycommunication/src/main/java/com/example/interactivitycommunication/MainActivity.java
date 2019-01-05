@@ -1,5 +1,6 @@
 package com.example.interactivitycommunication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,8 +21,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onMango(View view) {
+        Class cls = ProducerActivity.class;
+        Intent intent = new Intent(this,cls);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("keyOne", "Mango1");
+        bundle.putString("keyTwo", "Mango2");
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 
     private void onAndroid(View view) {
+        Class cls = ProducerActivity.class;
+        Intent intent = new Intent(this,cls);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("keyOne", "Android1");
+        bundle.putString("keyTwo" , "Android2");
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 }
