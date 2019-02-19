@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class ProducerActivity extends AppCompatActivity {
+    public static final String KEY_RES = "result";
         public static final String TAG = ProducerActivity.class.getCanonicalName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +19,8 @@ public class ProducerActivity extends AppCompatActivity {
         Intent intentResponsible = getIntent();
         Bundle bundle = intentResponsible.getExtras();
         if (bundle != null){
-            String one = bundle.getString("keyOne");
-            String two = bundle.getString("keyTwo");
+            String one = bundle.getString(MainActivity.KEY_ONE);
+            String two = bundle.getString(MainActivity.KEY_TWO);
             Log.i(TAG, "One -"+ one + "Two -"+two);
 
             ((RadioButton)findViewById(R.id.radOne)).setText(one);
@@ -32,9 +33,13 @@ public class ProducerActivity extends AppCompatActivity {
     private void onBack(View view) {
 
         Intent intent = new Intent();
-        Bundle bundle = new Bundle();
-        bundle.putString("keyResult",getSelectedText() );
-        intent.putExtras(bundle);
+        /*Bundle bundle = new Bundle();
+        bundle.putString(KEY_RES,getSelectedText() );
+        intent.putExtras(bundle);*/
+
+        intent.putExtra(KEY_RES,getSelectedText());
+
+
 
         setResult( RESULT_OK, intent);
         finish();
